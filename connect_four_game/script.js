@@ -123,7 +123,7 @@ function checkWinner(holes) {
                 let index = 7 * (row + i) + (col - i);
                 if (holes[index].classList.contains('yellow')) {
                     count++;
-                    if (count === 4) return 1;
+                    if (count === 4) return 2;
                 }
                 else {
                     count = 0;
