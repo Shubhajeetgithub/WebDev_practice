@@ -121,7 +121,7 @@ function checkWinner(holes) {
         for (let i = 0; i < 6; i++) {
             if (row + i >= 0 && row + i < 6 && col - i >= 0 && col - i < 7) {
                 let index = 7 * (row + i) + (col - i);
-                if (holes[index].classList.contains('red')) {
+                if (holes[index].classList.contains('yellow')) {
                     count++;
                     if (count === 4) return 1;
                 }
