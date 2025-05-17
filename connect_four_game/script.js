@@ -48,13 +48,13 @@ function checkWinner(holes) {
         }
     }
     //checking parallel to secondary diagonal
-    for (let j = -5; j < 7; j++) {
+    for (let j = 0; j < 12; j++) {
         let count = 0;
-        let row = (j >= 0) ? 0 : -j;
-        let col = (j >= 0) ? j : 0;
+        let row = (j < 7) ? 0 : j - 6;
+        let col = (j < 7) ? j : 6;
         for (let i = 0; i < 6; i++) {
-            if (row - i >= 0 && row - i < 6 && col + i >= 0 && col + i < 7) {
-                let index = 7 * (row - i) + (col + i);
+            if (row + i >= 0 && row + i < 6 && col - i >= 0 && col - i < 7) {
+                let index = 7 * (row + i) + (col - i);
                 if (holes[index].classList.contains('red')) {
                     count++;
                     if (count === 4) return 1;
@@ -114,16 +114,16 @@ function checkWinner(holes) {
         }
     }
     //checking parallel to secondary diagonal
-    for (let j = -5; j < 7; j++) {
+    for (let j = 0; j < 12; j++) {
         let count = 0;
-        let row = (j >= 0) ? 0 : -j;
-        let col = (j >= 0) ? j : 0;
+        let row = (j < 7) ? 0 : j - 6;
+        let col = (j < 7) ? j : 6;
         for (let i = 0; i < 6; i++) {
-            if (row - i >= 0 && row - i < 6 && col + i >= 0 && col + i < 7) {
-                let index = 7 * (row - i) + (col + i);
-                if (holes[index].classList.contains('yellow')) {
+            if (row + i >= 0 && row + i < 6 && col - i >= 0 && col - i < 7) {
+                let index = 7 * (row + i) + (col - i);
+                if (holes[index].classList.contains('red')) {
                     count++;
-                    if (count === 4) return 2;
+                    if (count === 4) return 1;
                 }
                 else {
                     count = 0;
