@@ -144,3 +144,39 @@ h1 {
         right: 5%;
     }
 }
+@media (max-width: 516px) {
+    .text-box {
+        width: 40vw;
+        height: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .game-row {
+        display: block;
+        position: relative;
+        height: 95%;
+    }
+    .wrapper {
+        position: absolute;
+        top: 0%;
+        left: 5%; 
+    }
+    #player1 {
+        position: absolute;
+        bottom: 0%;
+        left: 5%;
+    }
+    #player2 {
+        position: absolute;
+        bottom: 0%;
+        right: 5%;
+    }
+    .hole {
+        width: 40px;
+        height: 40px;
+    }
+    .wrapper {
+        gap: 0.5em;
+        padding: 0.5em;
+    }
+}
