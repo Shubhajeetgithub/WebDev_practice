@@ -260,7 +260,7 @@ wrapper.addEventListener('click', (event) => {
             if (checkWinner(holes) === 1) {
                 p1.textContent = 'You WIN';
                 check = false;
-                alert('Player 1 wins. Click on reload button to play again.');
+                alert('Congrats! You Win. Wanna try again?');
             }
             else { //engine's turn
                 let choice = returnFeasibleIndex();
@@ -268,7 +268,11 @@ wrapper.addEventListener('click', (event) => {
                 let id = choice[0] * 7 + choice[1];
                 holes[id].classList.add('yellow');
                 visitedArr2D[choice[0]][choice[1]] = 2;
-
+                if (checkWinner(holes) === 2) {
+                    check = false;
+                    p1.textContent = 'You LOSE';
+                    alert('You Lost. Try again!')
+                }
                 count += 2;
                 if (count === 42) {
                     p2.style.display = 'block';
