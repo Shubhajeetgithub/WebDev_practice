@@ -155,7 +155,7 @@ h1 {
         transform: translate(100%, 320%);
     }
 }
-@media (max-width: 516px) {
+@media (min-width: 386px) and (max-width: 516px) {
     body {
         display: block;
     }
@@ -191,5 +191,43 @@ h1 {
     .hole {
         width: 40px;
         height: 40px;
+    }
+}
+@media (min-width: 240px) and (max-width: 385px) {
+    body {
+        display: block;
+    }
+    .text-box {
+        width: 40vw;
+        height: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        max-width: 95%;
+    }
+    .game-row {
+        display: block;
+        position: relative;
+        height: 95%;
+        max-width: 100%;
+    }
+    .wrapper {
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        gap: 0.3em;
+        padding: 0.3em;
+        max-width: 90%; 
+    }
+    #player1 {
+        position: absolute;
+        transform: translate(0, 300%);
+    }
+    #player2 {
+        position: absolute;
+        transform: translate(100%, 300%);
+    }
+    .hole {
+        width: 25px;
+        height: 25px;
     }
 }
