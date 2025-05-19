@@ -193,7 +193,7 @@ h1 {
         height: 40px;
     }
 }
-@media (min-width: 240px) and (max-width: 385px) {
+@media (min-width: 300px) and (max-width: 385px) {
     body {
         display: block;
     }
@@ -214,8 +214,8 @@ h1 {
         position: absolute;
         top: 0%;
         left: 5%;
-        gap: 0.3em;
-        padding: 0.3em;
+        gap: 0.4em;
+        padding: 0.4em;
         max-width: 90%; 
     }
     #player1 {
@@ -227,7 +227,7 @@ h1 {
         transform: translate(100%, 300%);
     }
     .hole {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
     }
 }
