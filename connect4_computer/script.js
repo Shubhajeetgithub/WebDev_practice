@@ -187,22 +187,26 @@ function getNextMove(pos1, pos2, visitedArr, a, b) { //assuming it is player 2's
                     let y3 = y + 3 * dy;
                     let x2 = x + 2 * dx;
                     let y2 = y + 2 * dy;
-                    if (visitedArr[x1][y1] === a) { //yellow
-                        if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr[x3][y3] === a) {
-                            if (visitedArr[x2][y2] === a) points += 5000;
-                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr[x2][y2] === a) {
-                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr[x-dx][y-dy] === 0) points += 1600;
-                            else points += 500;
-                        } else if (x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr[x-dx][y-dy] === a && x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr[x2][y2] === 0 && x - 2*dx >= 0 && x - 2*dx < 6 && y - 2*dy >= 0 && y - 2*dy < 7 && visitedArr[x-2*dx][y-2*dy] === 0) {
-                            points += 800;
-                        } else points += 200;
+                    if (visitedArr2D[x1][y1] === a) { //yellow
+                        if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === a) {
+                            if (visitedArr2D[x2][y2] === a) points += 5000; //all 3 yellow on one side
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === a && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === a) { //3 yellow on one side
+                            points += 5000;
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === a) {
+                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 0) points += 1600; //2 yellow with both end open
+                            else points += 500; //2 yellow
+                        } else if (x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === a && x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 0 && x - 2*dx >= 0 && x - 2*dx < 6 && y - 2*dy >= 0 && y - 2*dy < 7 && visitedArr2D[x-2*dx][y-2*dy] === 0) {
+                            points += 800; //2 yellow with both end open
+                        } else points += 200; //1 yellow
                     } else { //for red
-                        if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr[x3][y3] === b) {
-                            if (visitedArr[x2][y2] === b) points += 3000;
-                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr[x2][y2] === b) {
-                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr[x-dx][y-dy] === 0) points += 1400;
+                        if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === b) {
+                            if (visitedArr2D[x2][y2] === b) points += 3000;
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === b && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === b) { //3 yellow on one side
+                            points += 3000;
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === b) {
+                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 0) points += 1400;
                             else points += 400;
-                        } else if (x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr[x-dx][y-dy] === b && x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr[x2][y2] === 0 && x - 2*dx >= 0 && x - 2*dx < 6 && y - 2*dy >= 0 && y - 2*dy < 7 && visitedArr[x-2*dx][y-2*dy] === 0) {
+                        } else if (x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === b && x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 0 && x - 2*dx >= 0 && x - 2*dx < 6 && y - 2*dy >= 0 && y - 2*dy < 7 && visitedArr2D[x-2*dx][y-2*dy] === 0) {
                             points += 700;
                         } else points += 100;
                     }
@@ -315,16 +319,20 @@ function returnFeasibleIndex(pos1, pos2, visitedArr2D) {
                     let y2 = y + 2 * dy;
                     if (visitedArr2D[x1][y1] === 2) { //yellow
                         if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 2) {
-                            if (visitedArr2D[x2][y2] === 2) points += 5000;
+                            if (visitedArr2D[x2][y2] === 2) points += 5000; //all 3 yellow on one side
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 2 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 2) { //3 yellow on one side
+                            points += 5000;
                         } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 2) {
-                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 0) points += 1600;
-                            else points += 500;
+                            if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 0) points += 1600; //2 yellow with both end open
+                            else points += 500; //2 yellow
                         } else if (x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 2 && x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 0 && x - 2*dx >= 0 && x - 2*dx < 6 && y - 2*dy >= 0 && y - 2*dy < 7 && visitedArr2D[x-2*dx][y-2*dy] === 0) {
-                            points += 800;
-                        } else points += 200;
+                            points += 800; //2 yellow with both end open
+                        } else points += 200; //1 yellow
                     } else { //for red
                         if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 1) {
                             if (visitedArr2D[x2][y2] === 1) points += 3000;
+                        } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 1 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 1) { //3 yellow on one side
+                            points += 3000;
                         } else if (x2 >= 0 && x2 < 6 && y2 >= 0 && y2 < 7 && visitedArr2D[x2][y2] === 1) {
                             if (x3 >= 0 && x3 < 6 && y3 >= 0 && y3 < 7 && visitedArr2D[x3][y3] === 0 && x - dx >= 0 && x - dx < 6 && y - dy >= 0 && y - dy < 7 && visitedArr2D[x-dx][y-dy] === 0) points += 1400;
                             else points += 400;
