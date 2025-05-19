@@ -363,7 +363,7 @@ function returnFeasibleIndex(pos1, pos2, visitedArr2D) {
                         let wrapper = { numMoves: 1 };
                         try {
                             numMovesToStop(pos1copy, pos2copy, visitedArr2Dcopy, wrapper); //return positive value if computer wins and negative value otherwise
-                            mapFuture.set(key, wrapper.numMoves);
+                            mapFuture.set(key, 100 / wrapper.numMoves);
                         } catch (error) {
                             mapFuture.set(key, 0);
                         }
