@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: white;
+  color: #333333;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #6c63ff;
+  font-weight: bold;
+}
+
+.location-time {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.weather-summary,
+.weather-details {
+  background-color: #e0e7ff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  color: #6c63ff;
+}
+
+.unit {
+  font-size: 1.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+.feels-like {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #222;
+}
+
+.weather-details {
+  display: flex;
+  align-items: center;
+}
+.weather-details ul {
+  list-style: none;
+  text-align: left;
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.weather-details a {
+  text-decoration: underline;
+  color: #333;
+}
+
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  main {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .weather-summary,
+  .weather-details {
+    width: 48%;
+    text-align: left;
+  }
+
+  .weather-summary {
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .temperature {
+    display: flex;
+    align-items: center;
+    font-size: 4rem;
+  }
+
+  .image, .description, .feels-like {
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+}
